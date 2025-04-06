@@ -12,7 +12,7 @@ img {
 
 ## LaTeX cheat sheet
 
-This is a latex reference sheet which is geared toward writing short documents
+This is a LaTeX reference sheet which is geared toward writing short documents
 e.g. math exercise sheets. It is a fork of the excellent [LaTeX cheat sheet by
 Winston Chang](https://wch.github.io/latexsheet/).
 
