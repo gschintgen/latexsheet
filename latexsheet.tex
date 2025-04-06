@@ -1,4 +1,6 @@
 \documentclass[10pt,landscape]{article}
+\usepackage{fontspec}
+\setmainfont{Libertinus Sans}
 \usepackage{multicol}
 \usepackage{calc}
 \usepackage{ifthen}
@@ -205,7 +207,8 @@ in the table of contents.
 \settowidth{\MyLen}{\texttt{.begin.quotation.}}
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
-\verb!\begin{comment}!    &  Comment (not printed). Requires \texttt{verbatim} package. \\
+\verb!\begin{comment}!    &  Comment (not printed).\newline
+        Requires \texttt{verbatim} package. \\
 \verb!\begin{quote}!      &  Indented quotation block. \\
 \verb!\begin{quotation}!  &  Like \texttt{quote} with indented paragraphs. \\
 \verb!\begin{verse}!      &  Quotation block for verse.
@@ -467,7 +470,7 @@ em-dash & \verb!---! & Yes---or no?    & Punctuation.
 Rules of width/height 0 are sometimes useful for solving spacing or alignment
 issues.
 
-% \section{Tabular environments}
+\columnbreak
 \section{Tables and tab stops}
 
 \subsection{Tab stops: \texttt{tabbing} vs. \texttt{tabto}}
