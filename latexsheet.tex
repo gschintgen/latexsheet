@@ -137,26 +137,51 @@ Usage:
 
 
 \subsection{Recommended packages}
-\settowidth{\MyLen}{\texttt{mathtools} }
+N.B. In the digital version of this cheat sheet all package names link to their
+respective CTAN page for quick access to the full documentation.
+\settowidth{\MyLen}{\texttt{tkz-euclide} }
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
-\texttt{multicol}  &  Use $n$ columns: 
-                        \verb!\begin{multicols}{!$n$\verb!}!.   \\
-\texttt{mathtools}  &  Advanced math typesetting. Includes \texttt{amsmath}.\\
-\texttt{geometry}  &  Page layout (margins, etc.)\\
-\texttt{fancyhdr}  &  Customize header and footer\\
-\texttt{graphicx}  &  Show image:
-                        \verb!\includegraphics[width=!%
-                        \textit{x}\verb!]{!%
-                        \textit{file}\verb!}!. \\
-\texttt{hyperref}       & Insert URL: \verb!\url{!%
-                        \textit{https://\ldots}%
-                        \verb!}!\newline or hyperlink: \verb!\href{URL}{text}!.\\
-\texttt{enumitem}         & Customize \verb!enumerate!.\\
-\texttt{tabularx}         & Stretchable \texttt{X} columns in tables.\\
-\texttt{tabulary}         & Automatically balanced column widths.\\
-\texttt{tabto}          & Tab stops (compatible with enumerations).\\
-\texttt{beamer}         & For creating slides.
+\href{https://ctan.org/pkg/babel}{\texttt{babel}}
+        & Support for non-English languages.\newline
+        See below for French typesetting.\\
+\href{https://ctan.org/pkg/geometry}{\texttt{geometry}}
+        &  Page layout (margins, etc.)\\
+\href{https://ctan.org/pkg/multicol}{\texttt{multicol}}
+        & Use $n$ columns: \verb!\begin{multicols}{!$n$\verb!}!.   \\
+\href{https://ctan.org/pkg/fancyhdr}{\texttt{fancyhdr}}
+        &  Customize header and footer\\
+\href{https://ctan.org/pkg/mathtools}{\texttt{mathtools}}
+        &  Advanced math typesetting. Includes \texttt{amsmath}.\\
+\href{https://ctan.org/pkg/graphicx}{\texttt{graphicx}}
+        &  Show image:
+        \verb!\includegraphics[width=!%
+        \textit{x}\verb!]{!%
+        \textit{file}\verb!}!. \\
+\href{https://ctan.org/pkg/hyperref}{\texttt{hyperref}}
+        & Insert URL: \verb!\url{!%
+        \textit{https://\ldots}%
+        \verb!}!\newline or hyperlink: \verb!\href{URL}{text}!.\\
+\href{https://ctan.org/pkg/enumitem}{\texttt{enumitem}}
+        & Customize \verb!enumerate!.\\
+\href{https://ctan.org/pkg/tabularx}{\texttt{tabularx}}
+        & Stretchable \texttt{X} columns in tables.\\
+\href{https://ctan.org/pkg/tabulary}{\texttt{tabulary}}
+        & Automatically balanced column widths.\\
+\href{https://www.ctan.org/pkg/tabto-ltx}{\texttt{tabto}}
+        & Tab stops (compatible with enumerations).\\
+\href{https://www.ctan.org/pkg/pgf}{\texttt{tikz}}
+        & \textbf{T}ikZ \textbf{i}st \textbf{k}ein
+        \textbf{Z}eichenprogramm.\newline
+        Make beautiful and precise scientific drawings.\newline
+        Full online documentation:
+        \url{https://tikz.dev}\\
+\href{https://ctan.org/pkg/tkz-euclide}{\texttt{tkz-euclide}}
+        & Tools for drawing Euclidean geometry; based on TikZ/PGF.\\
+\href{https://www.ctan.org/pkg/pgfplots}{\texttt{pgfplots}}
+        & Create various high-quality plots; based on TikZ/PGF.\\
+\href{https://www.ctan.org/pkg/beamer}{\texttt{beamer}}
+        & For creating slides.
 \end{tabular}
 
 Use before \verb!\begin{document}!.\\
@@ -470,7 +495,6 @@ em-dash & \verb!---! & Yes---or no?    & Punctuation.
 Rules of width/height 0 are sometimes useful for solving spacing or alignment
 issues.
 
-\columnbreak
 \section{Tables and tab stops}
 
 \subsection{Tab stops: \texttt{tabbing} vs. \texttt{tabto}}
@@ -805,7 +829,7 @@ Copyright \copyright\ 2014 Winston Chang\\
 Copyright \copyright\ 2025 Gilles Schintgen
 
 \url{https://wch.github.io/latexsheet/}\\
-\url{https://github.com/gschintgen/latexsheet}
+\url{https://gschintgen.github.io/latexsheet/}
 
 
 \end{multicols}
