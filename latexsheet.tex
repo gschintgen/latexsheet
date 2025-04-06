@@ -4,6 +4,7 @@
 \usepackage{ifthen}
 \usepackage[landscape]{geometry}
 \usepackage{hyperref}
+\usepackage{mathtools}
 
 \usepackage{comment}
 \excludecomment{sec-biblio}
@@ -98,7 +99,7 @@
 \setlength{\columnsep}{2pt}
 
 \begin{center}
-     \Large{\textbf{\LaTeXe\ Cheat Sheet}} \\
+     \Large{\textbf{\LaTeX\ Cheat Sheet}} \\
 \end{center}
 
 \section{Document classes}
@@ -125,8 +126,7 @@ end the document.
 \texttt{letterpaper}/\texttt{a4paper} & Paper size. \\
 \texttt{twocolumn} & Use two columns. \\
 \texttt{twoside}   & Set margins for two-sided. \\
-\texttt{landscape} & Landscape orientation.  Must use
-                     \texttt{dvips -t landscape}. \\
+\texttt{landscape} & Landscape orientation. \\
 \texttt{draft}     & Double-space lines.
 \end{tabular}
 
@@ -138,12 +138,10 @@ Usage:
 \settowidth{\MyLen}{\texttt{mathtools} }
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
-%\begin{tabular}{@{}ll@{}}
 \texttt{multicol}  &  Use $n$ columns: 
                         \verb!\begin{multicols}{!$n$\verb!}!.   \\
 \texttt{mathtools}  &  Advanced math typesetting. Includes \texttt{amsmath}.\\
-\texttt{geometry}  &  Page layout (margins, etc.)\newline
-                        see sample document\\
+\texttt{geometry}  &  Page layout (margins, etc.)\\
 \texttt{fancyhdr}  &  Customize header and footer\\
 \texttt{graphicx}  &  Show image:
                         \verb!\includegraphics[width=!%
@@ -155,6 +153,7 @@ Usage:
 \texttt{enumitem}         & Customize \verb!enumerate!.\\
 \texttt{tabularx}         & Stretchable \texttt{X} columns in tables.\\
 \texttt{tabulary}         & Automatically balanced column widths.\\
+\texttt{tabto}          & Tab stops (compatible with enumerations).\\
 \texttt{beamer}         & For creating slides.
 \end{tabular}
 
@@ -418,13 +417,13 @@ multiplier $x$.
 `       & \verb!`!  &
 ``      & \verb!``! &
 \{      & \verb!\{! &
-\lbrack & \verb![! &
+[       & \verb![! &
 (       & \verb!(! &
 \textless  &  \verb!\textless! \\
 '       & \verb!'!  &
 ''      & \verb!''! &
 \}      & \verb!\}! &
-\rbrack & \verb!]! &
+]       & \verb!]! &
 )       & \verb!)! &
 \textgreater  &  \verb!\textgreater! \\
 \end{tabular}
@@ -439,7 +438,7 @@ em-dash & \verb!---! & Yes---or no?    & Punctuation.
 
 
 \subsection{Line and page breaks}
-\settowidth{\MyLen}{\texttt{.pagebreak} }
+\settowidth{\MyLen}{\texttt{.columnbreak} }
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
 \verb!\\!          &  Begin new line without new paragraph.  \\
@@ -451,26 +450,27 @@ em-dash & \verb!---! & Yes---or no?    & Punctuation.
 \end{tabular}
 
 
-\subsection{Miscellaneous}
+\subsection{Spaces and rules}
 \settowidth{\MyLen}{\texttt{.rule.w..h.} }
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
-\verb!\today!  &  \today. \\
-\verb!$\sim$!  &  Prints $\sim$ instead of \verb!\~{}!, which makes \~{}. \\
-\verb!~!       &  Space, disallow linebreak (\verb!W.J.~Clinton!). \\
-\verb!\@.!     &  Indicate that the \verb!.! ends a sentence when following
-                        an uppercase letter. \\
+\verb!~!       &  Fixed space, disallow linebreak (\verb!N.~Biever!). \\
+\verb!\smallskip!       &  Small vertical space. \\
+\verb!\medskip!       &  Medium vertical space. \\
+\verb!\bigskip!       &  Big vertical space. \\
 \verb!\hspace{!$l$\verb!}! & Horizontal space of length $l$
                                 (Ex: $l=\mathtt{20pt}$). \\
 \verb!\vspace{!$l$\verb!}! & Vertical space of length $l$. \\
 \verb!\rule{!$w$\verb!}{!$h$\verb!}! & Line of width $w$ and height $h$. \\
 \end{tabular}
 
+Rules of width/height 0 are sometimes useful for solving spacing or alignment
+issues.
 
+% \section{Tabular environments}
+\section{Tables and tab stops}
 
-\section{Tabular environments}
-
-\subsection{\texttt{tabbing} environment}
+\subsection{Tab stops: \texttt{tabbing} vs. \texttt{tabto}}
 \begin{tabular}{@{}l@{\hspace{1.5ex}}l@{\hspace{10ex}}l@{\hspace{1.5ex}}l@{}}
 \verb!\=!  &   Set tab stop. &
 \verb!\>!  &   Go to tab stop.
@@ -478,6 +478,15 @@ em-dash & \verb!---! & Yes---or no?    & Punctuation.
 
 Tab stops can be set on ``invisible'' lines with \verb!\kill!
 at the end of the line.  Normally \verb!\\! is used to separate lines.
+
+\medskip
+The \texttt{tabbing} environment is incompatible with
+\texttt{enumerate}/\texttt{itemize}. In this case it's better to use the package
+\texttt{tabto} instead:
+\begin{verbatim}
+\TabPositions{2cm, 5cm}
+Some\tab sample\tab text.
+\end{verbatim}
 
 
 \subsection{\texttt{tabular} environment}
@@ -514,19 +523,52 @@ at the end of the line.  Normally \verb!\\! is used to separate lines.
 For inline math, use \verb!\(...\)! or \verb!$...$!.
 For displayed math, use \verb!\[...\]! or \verb!\begin{equation}!.
 
-\begin{tabular}{@{}l@{\hspace{1em}}l@{\hspace{2em}}l@{\hspace{1em}}l@{}}
-Superscript$^{x}$       &
-\verb!^{x}!             &  
-Subscript$_{x}$         &
-\verb!_{x}!             \\  
+\begin{tabular}{@{}l@{\hspace{1em}}l@{\hspace{3em}}l@{\hspace{1em}}l@{}}
+$2^{x}$       &
+\verb!2^{x}!             &  
+$x_{0}$         &
+\verb!x_{0}!             \\  
 $\frac{x}{y}$           &
 \verb!\frac{x}{y}!      &  
-$\sum_{k=1}^n$          &
-\verb!\sum_{k=1}^n!     \\  
 $\sqrt[n]{x}$           &
-\verb!\sqrt[n]{x}!      &  
+\verb!\sqrt[n]{x}!      \\
+$\sum_{k=1}^n$          &
+\verb!\sum_{k=1}^n!     &  
 $\prod_{k=1}^n$         &
-\verb!\prod_{k=1}^n!    \\ 
+\verb!\prod_{k=1}^n!    \\[0.5ex] 
+$\int_a^b f$           &
+\verb!\int_a^b f!      &  
+$\iint_S$         &
+\verb!\iint_S!    \\[0.5ex]
+$\vec{u}$           &
+\verb!\vec{u}!      &  
+$\overrightarrow{AB}$         &
+\verb!\overrightarrow{AB}!    \\ 
+\end{tabular}
+
+\medskip
+Matrices and determinants:
+
+\medskip
+\begin{tabular}{p{3cm}p{3cm}}
+\begin{minipage}[m]{\linewidth}
+\begin{verbatim}
+\begin{pmatrix}
+1&2\\   3&4
+\end{pmatrix}
+\end{verbatim}
+\end{minipage}
+&
+$\begin{pmatrix}1&2\\3&4\end{pmatrix}$\\[3ex]
+\begin{minipage}[m]{\linewidth}
+\begin{verbatim}
+\begin{vmatrix}
+1&2\\   3&4
+\end{vmatrix}
+\end{verbatim}
+\end{minipage}
+&
+$\begin{vmatrix}1&2\\3&4\end{vmatrix}$
 \end{tabular}
 
 \subsection{Math-mode symbols}
@@ -721,7 +763,7 @@ The \BibTeX\ database goes in a file called
 \end{verbatim}
 \end{sec-biblio}
 
-
+\columnbreak
 \section{Sample \LaTeX\ document}
 \begin{verbatim}
 \documentclass[11pt]{article}
@@ -748,7 +790,6 @@ second &  row  &  data \\
 \hline
 \end{tabular}
 \end{center}
-
 \end{document}
 \end{verbatim}
 
@@ -760,7 +801,7 @@ second &  row  &  data \\
 Copyright \copyright\ 2014 Winston Chang\\
 Copyright \copyright\ 2025 Gilles Schintgen
 
-\href{http://wch.github.io/latexsheet/}{http://wch.github.io/latexsheet/}
+\url{https://wch.github.io/latexsheet/}\\
 \url{https://github.com/gschintgen/latexsheet}
 
 
