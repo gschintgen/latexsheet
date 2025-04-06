@@ -7,6 +7,7 @@
 \usepackage[landscape]{geometry}
 \usepackage{hyperref}
 \usepackage{mathtools}
+\usepackage[english,french]{babel}
 
 \usepackage{comment}
 \excludecomment{sec-biblio}
@@ -385,6 +386,59 @@ multiplier $x$.
 
 
 
+
+\section{French typography}
+% babel's \DecimalMathComma is definitely worse
+% than icomma.
+% 1,23\quad $1,23$\\
+% (4, 5)\quad $(4, 5)$\\
+% (6,x)\quad $(6,x)$\\
+% f(x, y)\quad $f(x, y)$\\
+% g(3,14)\quad $g(3,14)$\\
+% \selectlanguage{french}
+% \DecimalMathComma
+% 1,23\quad $1,23$\\
+% (4, 5)\quad $(4, 5)$\\
+% (6,x)\quad $(6,x)$\\
+% f(x, y)\quad $f(x, y)$\\
+% g(3,14)\quad $g(3,14)$\\
+
+Use \href{https://ctan.org/pkg/babel-french}{babel-french}:
+\selectlanguage{french}
+\begin{verbatim}
+\usepackage[french]{babel}
+% fix spacing when using « » in source
+\frenchsetup{og=«, fg=»}
+% fix spacing in e.g. 1,23
+\usepackage{icomma}
+\end{verbatim}
+
+\begin{tabular}{@{}l@{\hspace{1ex}}l@{\hspace{2em}}l@{\hspace{1ex}}l%
+        @{\hspace{2em}}l@{\hspace{1ex}}l@{\hspace{1em}}l@{\hspace{1ex}}l@{}}
+1\ier           &  \verb!1\ier!  &
+1\iers          &  \verb!1\iers!  &
+1\iere          &  \verb!1\iere!  &
+1\ieres         &  \verb!1\ieres!  \\
+2\ieme          &  \verb!2\ieme!  &
+2\iemes         &  \verb!2\iemes!  &
+M\up{me}        &  \verb!M\up{me}!  &
+D\up{r}         &  \verb!D\up{r}!  \\
+\oe             &  \verb!\oe!  &
+\OE             &  \verb!\OE!  &
+\ae             &  \verb!\ae!  &
+\AE             &  \verb!\AE!  \\
+\no             &  \verb!\no!  &
+\nos            &  \verb!\nos!  &
+\No             &  \verb!\No!  &
+\Nos            &  \verb!\Nos!  \\
+\og{}           &  \verb!\og{}!  &
+\fg{}           &  \verb!\fg{}!  &
+\frquote{Oh!}   &  \verb|\frquote{Oh!}|
+\end{tabular}
+
+\selectlanguage{english}
+\href{https://ctan.org/pkg/polyglossia}{Polyglossia} is a modern replacement for
+\texttt{babel}, but it's only compatible with XeLaTeX and LuaLaTeX.
 
 
 \section{Text-mode symbols}
