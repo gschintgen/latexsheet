@@ -1,6 +1,6 @@
 CONVERT=gm convert
 
-all: latexsheet.pdf latexsheet-a4.pdf latexsheet-0.png latexsheet-thumb-0.png
+all: latexsheet.pdf latexsheet-a4.pdf latexsheet-0.png latexsheet-thumb-0.png sampledoc.pdf
 
 clean:
 	rm -f latexsheet.pdf latexsheet-a4.tex latexsheet-a4.pdf \
@@ -28,3 +28,7 @@ latexsheet-0.png: latexsheet-a4.pdf
 
 latexsheet-thumb-0.png: latexsheet-a4.pdf
 	$(CONVERT) -density 32x32 +adjoin latexsheet-a4.pdf latexsheet-thumb-%d.png
+
+sampledoc.pdf: sampledoc.tex
+	lualatex sampledoc.tex
+	rm -f sampledoc.aux sampledoc.log sampledoc.out
