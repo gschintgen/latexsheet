@@ -5,6 +5,10 @@
 \usepackage[landscape]{geometry}
 \usepackage{hyperref}
 
+\usepackage{comment}
+\excludecomment{sec-biblio}
+\excludecomment{subsec-accents}
+
 % To make this come out properly in landscape mode, do one of the following
 % 1.
 %  pdflatex latexsheet.tex
@@ -369,6 +373,7 @@ multiplier $x$.
 \S              &  \verb!\S! \\
 \end{tabular}
 
+\begin{subsec-accents}
 \subsection{Accents}
 \begin{tabular}{@{}l@{\ }l|l@{\ }l|l@{\ }l|l@{\ }l|l@{\ }l@{}}
 \`o   & \verb!\`o! &
@@ -400,6 +405,7 @@ multiplier $x$.
 !`    & \verb!~`! &
 ?`    & \verb!?`! &
 \end{tabular}
+\end{subsec-accents}
 
 
 \subsection{Delimiters}
@@ -601,6 +607,7 @@ $\Omega$        &  \verb!\Omega!
 %$^{\circ}$  &  \verb!^{\circ}! Ex: $22^{\circ}\mathrm{C}$: \verb!$22^{\circ}\mathrm{C}$!.
 %\end{tabular}
 
+\begin{sec-biblio}
 \section{Bibliography and citations}
 When using \BibTeX, you need to run \texttt{latex}, \texttt{bibtex},
 and \texttt{latex} twice more to resolve dependencies.
@@ -706,6 +713,7 @@ The \BibTeX\ database goes in a file called
   year    = 1953
 }
 \end{verbatim}
+\end{sec-biblio}
 
 
 \section{Sample \LaTeX\ document}
