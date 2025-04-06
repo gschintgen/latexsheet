@@ -12,7 +12,9 @@ img {
 
 ## LaTeX cheat sheet
 
-This is a latex reference sheet which is geared toward writing scientific papers. Please send suggestions to winston@stdout.org.
+This is a latex reference sheet which is geared toward writing short documents
+e.g. math exercise sheets. It is a fork of the excellent LaTeX cheat sheet by
+Winston Chang: https://wch.github.io/latexsheet/
 
 PNG images of the reference sheet:
 
@@ -21,7 +23,6 @@ PNG images of the reference sheet:
 
 ### Download
 
-[PDF](latexsheet.pdf) (US letter) |
 [PDF](latexsheet-a4.pdf) (A4) |
 [LaTeX](latexsheet.tex)
 
