@@ -154,8 +154,8 @@ Usage:
                         \verb!}!\newline or hyperlink: \verb!\href{URL}{text}!.\\
 \texttt{enumitem}         & Customize \verb!enumerate!.\\
 \texttt{tabularx}         & Stretchable \texttt{X} columns in tables.\\
-\texttt{tabulary}         & Automatically balanced table column widths.\\
-\texttt{beamer}         & For slides.
+\texttt{tabulary}         & Automatically balanced column widths.\\
+\texttt{beamer}         & For creating slides.
 \end{tabular}
 
 Use before \verb!\begin{document}!.\\
@@ -197,8 +197,6 @@ These commands go before \verb!\begin{document}!.  The declaration
 \verb!\subparagraph{!\textit{title}\verb!}!
 \end{multicols}
 {\raggedright
-Use \verb!\setcounter{secnumdepth}{!$x$\verb!}! suppresses heading
-numbers of depth $>x$, where \verb!chapter! has depth 0.
 Use a \texttt{*}, as in \verb!\section*{!\textit{title}\verb!}!,
 to not number a particular item---these items will also not appear
 in the table of contents.
@@ -350,6 +348,10 @@ document.
 \verb!\begin{flushright}! & \verb!\raggedleft!  \\
 \end{tabular}
 
+Better typesetting (by enabling hyphenation) can be achieved using the
+package \texttt{ragged2e} and its environments \verb!RaggedRight!,
+\verb!RaggedLeft!, and \verb!Center!.
+
 \subsection{Miscellaneous}
 \verb!\linespread{!$x$\verb!}! changes the line spacing by the
 multiplier $x$.
@@ -444,6 +446,7 @@ em-dash & \verb!---! & Yes---or no?    & Punctuation.
 \verb!\\*!         &  Prohibit pagebreak after linebreak. \\
 \verb!\kill!       &  Don't print current line. \\
 \verb!\pagebreak!  &  Start new page. \\
+\verb!\columnbreak!  &  Start new column. \\
 \verb!\noindent!   &  Do not indent current line.
 \end{tabular}
 
