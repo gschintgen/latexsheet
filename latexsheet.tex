@@ -103,11 +103,11 @@
 
 \section{Document classes}
 \begin{tabular}{@{}ll@{}}
-\verb!book!    & Default is two-sided. \\
-\verb!report!  & No \verb!\part! divisions. \\
-\verb!article! & No \verb!\part! or \verb!\chapter! divisions. \\
-\verb!letter!  & Letter (?). \\
-\verb!slides!  & Large sans-serif font.
+% \verb!book!    & Default is two-sided. \\
+% \verb!report!  & No \verb!\part! divisions. \\
+\verb!article! & Best suited for exercise sheets.\\%No \verb!\part! or \verb!\chapter! divisions. \\
+% \verb!letter!  & Letter (?). \\
+% \verb!slides!  & Large sans-serif font.
 \end{tabular}
 
 Used at the very beginning of a document:
@@ -134,28 +134,31 @@ Usage:
 \verb!\documentclass[!\textit{opt,opt}\verb!]{!\textit{class}\verb!}!.
 
 
-\subsection{Packages}
-\settowidth{\MyLen}{\texttt{multicol} }
+\subsection{Recommended packages}
+\settowidth{\MyLen}{\texttt{mathtools} }
 \begin{tabular}{@{}p{\the\MyLen}%
                 @{}p{\linewidth-\the\MyLen}@{}}
 %\begin{tabular}{@{}ll@{}}
-\texttt{fullpage}  &  Use 1 inch margins. \\
-\texttt{anysize}   &  Set margins: \verb!\marginsize{!\textit{l}%
-                        \verb!}{!\textit{r}\verb!}{!\textit{t}%
-                        \verb!}{!\textit{b}\verb!}!.            \\
 \texttt{multicol}  &  Use $n$ columns: 
                         \verb!\begin{multicols}{!$n$\verb!}!.   \\
-\texttt{latexsym}  &  Use \LaTeX\ symbol font. \\
+\texttt{mathtools}  &  Advanced math typesetting. Includes \texttt{amsmath}.\\
+\texttt{geometry}  &  Page layout (margins, etc.)\newline
+                        see sample document\\
+\texttt{fancyhdr}  &  Customize header and footer\\
 \texttt{graphicx}  &  Show image:
                         \verb!\includegraphics[width=!%
                         \textit{x}\verb!]{!%
                         \textit{file}\verb!}!. \\
-\texttt{url}       & Insert URL: \verb!\url{!%
-                        \textit{http://\ldots}%
-                        \verb!}!.
+\texttt{hyperref}       & Insert URL: \verb!\url{!%
+                        \textit{https://\ldots}%
+                        \verb!}!\newline or hyperlink: \verb!\href{URL}{text}!.\\
+\texttt{enumitem}         & Customize \verb!enumerate!.\\
+\texttt{tabularx}         & Stretchable \texttt{X} columns in tables.\\
+\texttt{tabulary}         & Automatically balanced table column widths.\\
+\texttt{beamer}         & For slides.
 \end{tabular}
 
-Use before \verb!\begin{document}!. 
+Use before \verb!\begin{document}!.\\
 Usage: \verb!\usepackage{!\textit{package}\verb!}!
 
 
@@ -719,7 +722,6 @@ The \BibTeX\ database goes in a file called
 \section{Sample \LaTeX\ document}
 \begin{verbatim}
 \documentclass[11pt]{article}
-\usepackage{fullpage}
 \title{Template}
 \author{Name}
 \begin{document}
@@ -729,22 +731,21 @@ The \BibTeX\ database goes in a file called
 \subsection*{subsection without number}
 text \textbf{bold text} text. Some math: $2+2=5$
 \subsection{subsection}
-text \emph{emphasized text} text. \cite{WC:1953}
-discovered the structure of DNA.
+text \emph{emphasized text} text. Display math:
+\[
+\int_0^1 x^2 \,\mathrm{d}x = \frac{1}{3}
+\]
 
-A table:
-\begin{table}[!th]
+A centered table:
+\begin{center}
 \begin{tabular}{|l|c|r|}
 \hline
 first  &  row  &  data \\
 second &  row  &  data \\
 \hline
 \end{tabular}
-\caption{This is the caption}
-\label{ex:table}
-\end{table}
+\end{center}
 
-The table is numbered \ref{ex:table}.
 \end{document}
 \end{verbatim}
 
@@ -753,7 +754,7 @@ The table is numbered \ref{ex:table}.
 \rule{0.3\linewidth}{0.25pt}
 \scriptsize
 
-Copyright \copyright\ 2014 Winston Chang
+Copyright \copyright\ 2014 Winston Chang\\
 Copyright \copyright\ 2025 Gilles Schintgen
 
 \href{http://wch.github.io/latexsheet/}{http://wch.github.io/latexsheet/}
