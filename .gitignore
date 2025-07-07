@@ -1,7 +1,8 @@
 _site/
 .gitignore~
-latexsheet.aux
+*.aux
+*.log
+*.out
+*.tex~
+*.synctex.gz
 latexsheet.bak.pdf
-latexsheet.log
-latexsheet.out
-latexsheet.synctex.gz
